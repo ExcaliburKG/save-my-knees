@@ -21,7 +21,7 @@ for video_url in videos:
     if video_url.startswith("#"):
         continue
     print(f"Downloading {video_url}")
-    get_video_formats_cmd = f'/home/kirill/.local/bin/yt-dlp "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -F --cookies "{cookie_file}"'
+    get_video_formats_cmd = f'yt-dlp "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -F --cookies "{cookie_file}"'
 
     p = subprocess.run(get_video_formats_cmd,
                    check=False,
@@ -35,7 +35,7 @@ for video_url in videos:
         raise Exception('Unable to get video format')
     video_format = input("Input format: ")
 
-    download_cmd = f'/home/kirill/.local/bin/yt-dlp -o "{downloaded_videos_dir}/%(title)s-%(id)s.%(ext)s" "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -f {video_format} --cookies "{cookie_file}"'
+    download_cmd = f'yt-dlp -o "{downloaded_videos_dir}/%(title)s-%(id)s.%(ext)s" "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -f {video_format} --cookies "{cookie_file}"'
 
     p = subprocess.run(download_cmd,
                    check=False,
