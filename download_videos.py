@@ -8,11 +8,12 @@ import shutil
 with open(os.path.abspath('./youtube.txt'), 'r') as src:
     videos = src.readlines()
 
+cleanup_videos = False
 current_dir = os.path.abspath(os.path.dirname(__file__))
 downloaded_videos_dir = os.path.join(current_dir, "videos")
 cookie_file = os.path.join(current_dir, "cookies.firefox-private.txt")
 
-if os.path.exists(downloaded_videos_dir):
+if os.path.exists(downloaded_videos_dir) and cleanup_videos:
     shutil.rmtree(downloaded_videos_dir)
 
 os.makedirs(downloaded_videos_dir, exist_ok=True)
@@ -49,3 +50,5 @@ for video_url in videos:
         raise Exception('Unable to get video')
     
     os.system('cls||clear')
+
+print(f"Playlist downloaded successfully!")
