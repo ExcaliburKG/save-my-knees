@@ -10,6 +10,7 @@ with open(os.path.abspath('./youtube.txt'), 'r') as src:
 
 current_dir = os.path.abspath(os.path.dirname(__file__))
 downloaded_videos_dir = os.path.join(current_dir, "videos")
+cookie_file = os.path.join(current_dir, "cookies.firefox-private.txt")
 
 if os.path.exists(downloaded_videos_dir):
     shutil.rmtree(downloaded_videos_dir)
@@ -20,7 +21,7 @@ for video_url in videos:
     if video_url.startswith("#"):
         continue
     print(f"Downloading {video_url}")
-    get_video_formats_cmd = f'/home/kirill/.local/bin/yt-dlp "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -F --cookies "/mnt/c/Users/gorbu/Documents/save-my-knees/cookies.firefox-private.txt"'
+    get_video_formats_cmd = f'/home/kirill/.local/bin/yt-dlp "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -F --cookies "{cookie_file}"'
 
     p = subprocess.run(get_video_formats_cmd,
                    check=False,
@@ -34,7 +35,7 @@ for video_url in videos:
         raise Exception('Unable to get video format')
     video_format = input("Input format: ")
 
-    download_cmd = f'/home/kirill/.local/bin/yt-dlp -o "{downloaded_videos_dir}/%(title)s-%(id)s.%(ext)s" "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -f {video_format} --cookies "/mnt/c/Users/gorbu/Documents/save-my-knees/cookies.firefox-private.txt"'
+    download_cmd = f'/home/kirill/.local/bin/yt-dlp -o "{downloaded_videos_dir}/%(title)s-%(id)s.%(ext)s" "{video_url}" --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" -f {video_format} --cookies "{cookie_file}"'
 
     p = subprocess.run(download_cmd,
                    check=False,
