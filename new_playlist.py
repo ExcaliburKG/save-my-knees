@@ -28,7 +28,7 @@ with open(new_playlist_file, 'w') as pf:
     videos = list(playlist["videos_url"])
 
     while video_url.lower() != 'n':
-        video_url = input("Enter video url: ")
+        video_url = input("Enter video url (f=finish): ")
         if video_url and video_url != 'n':
             videos.append(video_url)
 
