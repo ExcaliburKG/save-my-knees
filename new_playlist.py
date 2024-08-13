@@ -27,9 +27,9 @@ with open(new_playlist_file, 'w') as pf:
     video_url = ''
     videos = list(playlist["videos_url"])
 
-    while video_url.lower() != 'n':
+    while video_url.lower() != 'f':
         video_url = input("Enter video url (f=finish): ")
-        if video_url and video_url != 'n':
+        if video_url and video_url != 'f':
             videos.append(video_url)
 
     playlist["videos_url"] = videos
