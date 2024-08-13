@@ -11,13 +11,13 @@ cd yt-dlp
 pip install .
 ```
 
-Все ссылки на видео складываем в файлик youtube.txt в формате
-https://www.youtube.com/watch?v=ISbaz49DPKo
-https://www.youtube.com/watch?v=ASVax45GPzo
-...
+Создание плейлиста с названием и ссылками на видео делается скриптом:
+```
+python new_playlist.py
+```
+Копируем из браузера полный урл и вставляем.
 
-то есть копируем из браузера полный урл и вставляем.
-Скрипт возьмет все ссылки и скачает их в папку
+
 Как запускать скрипт скачивания:
 ```
 python download_videos.py
@@ -26,3 +26,5 @@ python download_videos.py
 ```
 137+140
 ```
+
+Скрипт возьмет все ссылки и скачает их в папку videos/%playlist_name%

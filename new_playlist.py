@@ -25,12 +25,14 @@ with open(new_playlist_file, 'w') as pf:
     playlist["playlist_url"] = playlist_url
 
     video_url = ''
+    i = 1
     videos = list(playlist["videos_url"])
 
     while video_url.lower() != 'f':
-        video_url = input("Enter video url (f=finish): ")
-        if video_url and video_url != 'f':
+        video_url = input(f"Enter №{i} video url (f=finish): ")
+        if video_url and (video_url != 'f' and "youtube.com" in video_url):
             videos.append(video_url)
+            i += 1
 
     playlist["videos_url"] = videos
     

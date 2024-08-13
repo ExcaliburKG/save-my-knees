@@ -68,6 +68,6 @@ for file in os.listdir(playlists_dir):
             
             
             os.system('cls||clear')
-            
+
         shutil.move(playlist_file, f"{playlist_file}.done")
         print(f"Playlist {playlist_file} downloaded successfully!")
