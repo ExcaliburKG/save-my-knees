@@ -1,5 +1,6 @@
 text.txt
 videos
 done_playlists
-playlists
+playlists/*
+!playlists/playlist.json.tpl
 cook*

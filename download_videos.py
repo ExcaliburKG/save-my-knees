@@ -66,6 +66,8 @@ for file in os.listdir(playlists_dir):
             if p.returncode != 0:
                 raise Exception('Unable to get video')
             
-            shutil.move(playlist_file, f"{playlist_file}.done")
+            
             os.system('cls||clear')
-            print(f"Playlist {playlist_file} downloaded successfully!")
+            
+        shutil.move(playlist_file, f"{playlist_file}.done")
+        print(f"Playlist {playlist_file} downloaded successfully!")
