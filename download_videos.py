@@ -5,9 +5,6 @@ import subprocess
 import shutil
 import json
 
-with open(os.path.abspath('./youtube.txt'), 'r') as src:
-    videos = src.readlines()
-
 cleanup_videos = False
 script_dir = os.path.abspath(os.path.dirname(__file__))
 downloaded_videos_dir = os.path.join(script_dir, "videos")
